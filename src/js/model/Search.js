@@ -11,7 +11,7 @@ export default class Search {
                 return this.result;
             }
             catch(err){
-                    alert(' Ямар нэг алдаа гарлаа ' +err);
+                    console.log(' Ямар нэг алдаа гарлаа ' +err);
             }
         
         }
