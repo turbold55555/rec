@@ -1,10 +1,5 @@
-const arr = [23,14,44,123];
+require('@babel/polyfill');
+import Search from './model/Search';
+let search  = new Search('Strawberry');
 
-let  myfunc = a => {
-    
-    console.log(` Тоо бол: ${a}`);
-} ;
-
-const arr1 = [... arr, 111 ,222];
-
-myfunc(arr1[1]);
+search.doSearch().then( r=> console.log(r));
