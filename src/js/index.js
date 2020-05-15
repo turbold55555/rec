@@ -1,7 +1,8 @@
 require('@babel/polyfill');
 import Search from './model/Search';
 import {elements, renderLoader,clearLoader} from './view/base';
-import * as searchView from './view/SearchView'
+import * as searchView from './view/SearchView';
+import Recipe from './model/Recipe';
 
 
 /**
@@ -36,9 +37,8 @@ const controlSearch = async () =>{
     if(state.search.result === undefined){
         alert('Хайлтаар илэрцгүй');
     }else
-    searchView.renderRecipes(state.search.result)
+    searchView.renderRecipes(state.search.result, 2 , 5)
     // console.log(state.search.result); 
-
 
     }else {
          
@@ -52,3 +52,16 @@ elements.searchForm.addEventListener('submit', e=> {
     e.preventDefault();
     controlSearch();
 });
+
+ elements.pageButtons.addEventListener('click', e=> {
+     const btn = e.target.closest('.btn-inline');
+     if(btn){
+        const gotoPageNumber = parseInt( btn.dataset.goto,10);
+        searchView.clearSearchResult();
+        searchView.renderRecipes(state.search.result, gotoPageNumber);
+     }
+     
+});
+
+const sda = new Recipe(47746);
+sda.getRecipe();
