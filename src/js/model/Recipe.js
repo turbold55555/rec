@@ -15,6 +15,14 @@ export default class Recipe {
             this.title = result.data.recipe.title;
             this.social_rank = result.data.recipe.social_rank;
     }
+    calcTime(){
+        // найрлага бүрд ойролцоогоор 5 минут зарцуулна.
+        this.time = this.ingredients.length *6;
+    }
+
+    calcHuniiToo(){
+        this.huniiToo = 4;
+    }
 }
 
 

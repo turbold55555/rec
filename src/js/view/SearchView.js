@@ -1,16 +1,7 @@
 import {elements} from './base';
 
-// image_url: "http://forkify-api.herokuapp.com/images/steakhousepizza0b87.jpg"
-// publisher: "The Pioneer Woman"
-// publisher_url: "http://thepioneerwoman.com"
-// recipe_id: "47000"
-// social_rank: 99.99999981149679
-// source_url: "http://thepioneerwoman.com/cooking/2011/09/steakhouse-pizza/"
-
-
 //  Private Function 
 const renderRecipe = recipe => {
-    console.log(recipe);
     
     const markup = `<li>
     <a class="results__link " href="#${recipe.recipe_id}">
@@ -37,7 +28,7 @@ export const clearSearchResult = () => {
 }
 
 export const getInput = () => elements.searchInput.value;
-export const renderRecipes = (recipes, currentPage = 1, resPerPage =5) => {
+export const renderRecipes = (recipes, currentPage = 1, resPerPage =10) => {
     // Хайлтын үр дүнг хуудаслаж үзүүлэх
     //  page = 2 , start  = 10 , end 20
     const start = (currentPage-1) * resPerPage;
